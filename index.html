@@ -37,23 +37,26 @@ a{color:inherit;text-decoration:none;cursor:pointer;}
 svg{display:block;}
 
 /* ─── NAV ─── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;padding:0 5%;height:68px;
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:68px;
   border-bottom:1px solid transparent;
   transition:background var(--t),border-color var(--t);
 }
-nav.scrolled{background:rgba(12,12,12,0.95);border-color:var(--border);backdrop-filter:blur(16px);}
+#nav.scrolled{background:rgba(12,12,12,0.95);border-color:var(--border);backdrop-filter:blur(16px);}
 .nav-logo{
+  flex-shrink:0;
   font-family:'EB Garamond',serif;font-size:1.05rem;letter-spacing:0.18em;
   text-transform:uppercase;color:var(--text);font-weight:500;
+  text-decoration:none;
 }
 .nav-logo em{color:var(--accent);font-style:normal;}
-.nav-links{display:flex;align-items:center;gap:2.5rem;flex:1;justify-content:flex-end;}
+.nav-links{display:flex;align-items:center;gap:2.5rem;flex-shrink:0;}
 .nav-links a{
   font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
   color:var(--muted);font-weight:500;min-height:44px;display:flex;align-items:center;
-  transition:color var(--t);
+  transition:color var(--t);text-decoration:none;
 }
 .nav-links a:hover{color:var(--text);}
 .nav-cta{
@@ -63,7 +66,7 @@ nav.scrolled{background:rgba(12,12,12,0.95);border-color:var(--border);backdrop-
   transition:background var(--t),color var(--t) !important;
 }
 .nav-cta:hover{background:var(--accent);color:var(--bg) !important;}
-.nav-toggle{display:none;background:none;border:none;color:var(--text);padding:8px;margin-left:auto;}
+.nav-toggle{display:none;flex-shrink:0;background:none;border:none;color:var(--text);padding:8px;cursor:pointer;}
 
 /* ─── HERO ─── */
 .hero{
@@ -340,7 +343,7 @@ footer{
   .cta-band h2{max-width:100%;}
 }
 @media(max-width:768px){
-  .nav-links{display:none;flex-direction:column;justify-content:flex-start;flex:unset;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--bg);padding:3rem 5%;gap:0;overflow-y:auto;}
+  .nav-links{display:none;flex-direction:column;justify-content:flex-start;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--bg);padding:3rem 5%;gap:0;overflow-y:auto;}
   .nav-links.open{display:flex;}
   .nav-links a{font-size:1.25rem;letter-spacing:0.05em;padding:1.25rem 0;border-bottom:1px solid var(--border);min-height:60px;color:var(--text);}
   .nav-cta{margin-top:1.5rem;justify-content:center;border-radius:2px;}
